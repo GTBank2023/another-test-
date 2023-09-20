@@ -599,8 +599,7 @@ window.speechSynthesis.speak(lobbyDescription); // Read out lobby description
 window.speechSynthesis.speak(relationshipDeskDescription); // Read out relationship desk description
 window.speechSynthesis.speak(OperationsAreaDescription); // Read out Operations Area description
 window.speechSynthesis.speak(CustomerInformationServiceDescription); // Read out Customer Information Service description
-
-    }
+        
 });
 
 
