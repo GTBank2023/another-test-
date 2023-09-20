@@ -802,7 +802,6 @@ async function someFunction() {
   }
 }
 
-
 async function predictFromVideo() {
     ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -824,8 +823,6 @@ videoElement.addEventListener('loadeddata', async () => {
     videoElement.play();
     await detectObjects(); // Assuming detectObjects() is asynchronous
 });
-
-  
 
 document.addEventListener('DOMContentLoaded', () => {
     launchSystem();
