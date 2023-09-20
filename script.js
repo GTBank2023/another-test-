@@ -770,7 +770,7 @@ try {
   displayErrorMessageToUser('Failed to load images. Please check your internet connection.');
 }
 
-
+async function loadModel() {
 try {
   // Load the object detection model
   const cocoSsdModel = await tf.loadGraphModel('path/to/model.json');
@@ -779,7 +779,12 @@ try {
   console.error('Error loading the object detection model:', error);
   // Optionally, display a user-friendly error message
   displayErrorMessageToUser('Failed to load the object detection model. Please try again later.');
+ }
 }
+
+
+// Call the async function
+loadModel();
 
 
 
