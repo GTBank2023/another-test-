@@ -803,29 +803,29 @@ async function someFunction() {
 }
 
 
-    function predictFromVideo() {
-        ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const tensor = tf.browser.fromPixels(imgData).expandDims();
+async function predictFromVideo() {
+    ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const tensor = tf.browser.fromPixels(imgData).expandDims();
 
-        const predictions = await cocoSsdModel.detect(tensor);
-        const predictionsArray = await predictions.data();
-        
-        const detectedMarker = detectMarker(predictionsArray);
+    const predictions = await cocoSsdModel.detect(tensor);
+    const predictionsArray = await predictions.data();
+    
+    const detectedMarker = detectMarker(predictionsArray);
 
-        if (detectedMarker !== null) {
-            handleDetectedMarker(detectedMarker);
-        }
-
-        requestAnimationFrame(predictFromVideo);
+    if (detectedMarker !== null) {
+        handleDetectedMarker(detectedMarker);
     }
 
-    videoElement.addEventListener('loadeddata', () => {
-        videoElement.play();
-        detectObjects();
-    });
+    requestAnimationFrame(predictFromVideo);
+}
+
+videoElement.addEventListener('loadeddata', async () => {
+    videoElement.play();
+    await detectObjects(); // Assuming detectObjects() is asynchronous
 });
 
+  
 
 document.addEventListener('DOMContentLoaded', () => {
     launchSystem();
