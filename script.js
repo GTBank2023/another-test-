@@ -1,5 +1,3 @@
-
-
 /*eslint-env es6*/
 
 // Function to launch your system
@@ -341,32 +339,6 @@ const detectionRules = {
     return detectedAreas;
 
 
-// Function to detect areas based on rules
-function detectAreas(predictionsArray) {
-    const detectedAreas = [];
-
-    for (const area in detectionRules) {
-        const rules = detectionRules[area];
-
-        // Check if all rules for this area are satisfied
-        const areaDetected = rules.every(rule => {
-            const labelIndex = model.classIndex[rule.label];
-            const confidence = predictionsArray[labelIndex];
-            return confidence >= rule.minConfidence;
-        });
-
-        if (areaDetected) {
-            // Instead of pushing just the area name, push an object with more information
-            detectedAreas.push({
-                area: area,
-                description: getDescriptionForArea(area),
-                benefits: getBenefitsForArea(area),
-            });
-        }
-    }
-
-    return detectedAreas;
-}
 
 // For Lobby Area
 const LobbyArea = detectedAreas.find(area => area.area === "Lobby Area");
@@ -768,26 +740,9 @@ try {
   displayErrorMessageToUser('Failed to load images. Please check your internet connection.');
 }
 
+
+
 async function loadModel() {
-try {
-  // Load the object detection model
-  const cocoSsdModel = await tf.loadGraphModel('path/to/model.json');
-} catch (error) {
-  // Handle the model loading error
-  console.error('Error loading the object detection model:', error);
-  // Optionally, display a user-friendly error message
-  displayErrorMessageToUser('Failed to load the object detection model. Please try again later.');
- }
-}
-
-
-// Call the async function
-loadModel();
-
-
-
-
-async function someFunction() {
   try {
     // Load the object detection model
     const cocoSsdModel = await tf.loadGraphModel('path/to/model.json');
@@ -800,6 +755,11 @@ async function someFunction() {
   }
 }
 
+// Call the async function to load the model
+loadModel();
+
+
+
 async function predictFromVideo() {
     ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -808,14 +768,12 @@ async function predictFromVideo() {
     const predictions = await cocoSsdModel.detect(tensor);
     const predictionsArray = await predictions.data();
     
-    const detectedMarker = detectMarker(predictionsArray);
-
-    if (detectedMarker !== null) {
-        handleDetectedMarker(detectedMarker);
-    }
+   
+    handleDetectedAreas(predictionsArray);
 
     requestAnimationFrame(predictFromVideo);
 }
+
 
 videoElement.addEventListener('loadeddata', async () => {
     videoElement.play();
