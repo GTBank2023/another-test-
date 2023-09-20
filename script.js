@@ -600,7 +600,7 @@ window.speechSynthesis.speak(relationshipDeskDescription); // Read out relations
 window.speechSynthesis.speak(OperationsAreaDescription); // Read out Operations Area description
 window.speechSynthesis.speak(CustomerInformationServiceDescription); // Read out Customer Information Service description
         
-});
+};
 
 
     async function detectObjects() {
