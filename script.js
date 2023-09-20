@@ -191,9 +191,8 @@ function initializeDetectedAreas() {
 // Call this function to initialize the array
 initializeDetectedAreas();
 
-
-import * as tf from '@tensorflow/tfjs';
-
+import tf from '@tensorflow/tfjs';
+        
 document.addEventListener('DOMContentLoaded', async () => {
     const videoElement = document.getElementById('video-feed');
     const canvas = document.getElementById('canvas');
