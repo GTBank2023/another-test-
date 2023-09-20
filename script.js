@@ -827,3 +827,4 @@ videoElement.addEventListener('loadeddata', async () => {
 document.addEventListener('DOMContentLoaded', () => {
     launchSystem();
 });
+
