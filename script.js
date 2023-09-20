@@ -789,16 +789,18 @@ loadModel();
 
 
 
-try {
-  // Load the object detection model
-  const cocoSsdModel = await tf.loadGraphModel('path/to/model.json');
-} catch (error) {
-  // Handle the model loading error
-  console.error('Error loading the object detection model:', error);
-  // Optionally, display a user-friendly error message
-  displayErrorMessageToUser('Failed to load the object detection model. Please try again later.');
+async function someFunction() {
+  try {
+    // Load the object detection model
+    const cocoSsdModel = await tf.loadGraphModel('path/to/model.json');
+    // Rest of your code after model is loaded
+  } catch (error) {
+    // Handle the model loading error
+    console.error('Error loading the object detection model:', error);
+    // Optionally, display a user-friendly error message
+    displayErrorMessageToUser('Failed to load the object detection model. Please try again later.');
+  }
 }
-
 
 
     function predictFromVideo() {
