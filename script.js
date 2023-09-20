@@ -1,5 +1,3 @@
-
-
 /*eslint-env es6*/
 
 // Function to launch your system
@@ -118,7 +116,6 @@ async function launchSystem() {
 
     };
 
-
    // Function to detect areas based on rules
     function detectAreas(predictionsArray) {
   
@@ -144,8 +141,6 @@ async function launchSystem() {
 
     return detectedAreas;
 
-
-
     // FUNCTION TO PROCESS PREDICTIONS
     async function detectObjects() {
         // Your detectObjects function here...
@@ -165,12 +160,10 @@ async function launchSystem() {
     await detectObjects();
 }
 
-
 // Call the launchSystem function when the page loads
 document.addEventListener('DOMContentLoaded', () => {
     launchSystem();
 });
-
 
 // Get a reference to the "Get Started" button
 const getStartedButton = document.getElementById('get-started-button');
@@ -477,24 +470,15 @@ async function processPredictions(predictions) {
 
   const predictionsArray = predictions.map(prediction => prediction.score);
 
-
-
 detectAreas(predictions);
-
-
-
+    
   // Handle the detected areas
-
   handleDetectedAreas(predictionsArray);
-
-
 
   // Continue video frame processing or rendering as needed...
 
 }
-
-
-
+        
 // Function to detect objects using COCO-SSD
 
 async function detectObjects() {
@@ -515,8 +499,6 @@ async function detectObjects() {
 
   processPredictions(predictions);
 
-
-
   if (detectedAreas.length > 0) {
 
     const detectedArea = detectedAreas[0]; // Assuming you want to use the first detected area
@@ -534,7 +516,6 @@ async function detectObjects() {
   }
 
 }
-
 
 
 // Call detectObjects when the video is loaded
@@ -619,7 +600,6 @@ window.speechSynthesis.speak(CustomerInformationServiceDescription); // Read out
         });
 };
 
-
     fetch('https://drive.google.com/file/d/1uNDyaihSkeOFFU3zAivZByG4pa05fGMc')
         .then((response) => response.json())
         .then((data) => {
@@ -645,8 +625,7 @@ const StaircaseImages = [
     'https://drive.google.com/uc?id=1ZZDhKY5p23KFPj8JWxOjjfap6qDZy66I',
     'https://drive.google.com/uc?id=1WW34VQT-Ut9D1p167svHueh9cizFtLPU',
   ];
-
-
+    
 const RelationshipDeskImages = [
     'https://drive.google.com/uc?id=1b6Vqo8EoYP-9LI9jOpTzOXo7CeQ5AWGp',
     'https://drive.google.com/uc?id=1gonsFAcyV4ZkzRIlr0fkJNgIlM8PR6eT',
@@ -665,8 +644,7 @@ const RelationshipDeskImages = [
     'https://drive.google.com/uc?id=1BlZj5a3H1XasgATLKHunHLUIzC9zfdwP',
     'https://drive.google.com/uc?id=1JPmd9wquHo5qt4_iY1H1nEmo3o2NCEkQ',
     
-]
-
+    ];
 const loadOperationsAreaImages = [
     'https://drive.google.com/uc?id=1Kw-RTbqRFJlvjwpi8DwBWjIwImbW3P1E',
     'https://drive.google.com/uc?id=1zUhR1xbN29J5ni9W9oVDng52fBAE6akc',
@@ -785,10 +763,7 @@ try {
 
 // Call the async function
 loadModel();
-
-
-
-
+    
 async function someFunction() {
   try {
     // Load the object detection model
@@ -827,4 +802,3 @@ videoElement.addEventListener('loadeddata', async () => {
 document.addEventListener('DOMContentLoaded', () => {
     launchSystem();
 });
-
