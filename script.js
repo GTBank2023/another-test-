@@ -595,7 +595,6 @@ relationshipDeskDescription.voice = voices[1]; // Use the desired voice index fo
 // Set voices for other areas as needed
         
 // Finally, trigger speech synthesis for each area
-// Finally, trigger speech synthesis for each area
 window.speechSynthesis.speak(lobbyDescription); // Read out lobby description
 window.speechSynthesis.speak(relationshipDeskDescription); // Read out relationship desk description
 window.speechSynthesis.speak(OperationsAreaDescription); // Read out Operations Area description
