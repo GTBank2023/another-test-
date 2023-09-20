@@ -199,14 +199,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const ctx = canvas.getContext('2d');
 
     // Check if Web Speech API is supported
-    if ('speechSynthesis' in window) {
-        // Web Speech API is supported
-        //function textToSpeech(message) {
-        // Create a new instance of SpeechSynthesisUtterance
-        const utterance = new SpeechSynthesisUtterance(message);
-        window.speechSynthesis.speak(utterance);
-    }
+if ('speechSynthesis' in window) {
+    // Web Speech API is supported
+    const utterance = new SpeechSynthesisUtterance(message);
+    window.speechSynthesis.speak(utterance);
 }
+
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
     videoElement.srcObject = stream;
     await videoElement.play();
