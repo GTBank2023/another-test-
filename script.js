@@ -617,7 +617,7 @@ window.speechSynthesis.speak(CustomerInformationServiceDescription); // Read out
         .catch((error) => {
             console.error('Error:', error);
         });
-});
+};
 
 
     fetch('https://drive.google.com/file/d/1uNDyaihSkeOFFU3zAivZByG4pa05fGMc')
