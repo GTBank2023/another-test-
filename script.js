@@ -787,3 +787,15 @@ videoElement.addEventListener('loadeddata', async () => {
 document.addEventListener('DOMContentLoaded', () => {
     launchSystem();
 });
+
+    function launchSystem() {
+    console.log('launchSystem called');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded event triggered');
+    launchSystem();
+});
+
+
+    
