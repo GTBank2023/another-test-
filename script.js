@@ -791,11 +791,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function launchSystem() {
     console.log('launchSystem called');
 }
-
+function launchSystem() {
+    console.log('launchSystem called');
+}
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded event triggered');
     launchSystem();
 });
-
-
-    
