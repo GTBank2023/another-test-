@@ -1,4 +1,4 @@
-/*eslint-env es6*/
+/*eslint-env es8*/
 
 // Function to launch your system
 async function launchSystem() {
@@ -520,21 +520,25 @@ videoElement.addEventListener("loadeddata", () => {
     // You will need to implement the textToSpeech function using your preferred TTS library.
     // This function should take the message as input and read it aloud.
   
-  function textToSpeech(message) {
-       // Function to perform text-to-speech
+// Function to perform text-to-speech
 function textToSpeech(message) {
-  
   // Check if the Web Speech API is supported
-    if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(message);
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(message);
 
- // Get the list of available voices
- const voices = speechSynthesis.getVoices();
+    // Get the list of available voices
+    const voices = speechSynthesis.getVoices();
 
- // Select a voice (let's use the first available voice)
- if (voices.length > 0) {
-        utterance.voice = voices[0];
+    // Select a voice (let's use the first available voice)
+    if (voices.length > 0) {
+      utterance.voice = voices[0];
     }
+
+    // Speak the message
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
 
 // Create separate SpeechSynthesisUtterance objects for each area's description
 const lobbyDescription = new SpeechSynthesisUtterance("Welcome to GTBank Tanzania, You are currently at the Bank's Lobby Area which is your first point of contact as you enter the bank.");
